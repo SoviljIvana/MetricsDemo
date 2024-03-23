@@ -5,16 +5,23 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<InvariantGlobalization>true</InvariantGlobalization>
+		<UserSecretsId>ad1cf10c-f04e-430a-be22-89f8b3022367</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Grafana.OpenTelemetry" Version="0.6.0-beta.2" />
 		<PackageReference Include="Microsoft.Extensions.Compliance.Redaction" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0"/>
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Telemetry" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Telemetry.Abstractions" Version="8.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
 		<PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.7.0-alpha.1" />
 		<PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.7.0-alpha.1" />
+		<PackageReference Include="prometheus-net" Version="8.2.1" />
+		<PackageReference Include="prometheus-net.AspNetCore" Version="8.2.1" />
+		<PackageReference Include="prometheus-net.AspNetCore.HealthChecks" Version="8.2.1" />
 		<PackageReference Include="Seq.Extensions.Logging" Version="6.1.0" />
 		<PackageReference Include="OpenTelemetry.Exporter.Prometheus.AspNetCore" Version="1.7.0-rc.1" />
 		<PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.7.0-rc.1" />
