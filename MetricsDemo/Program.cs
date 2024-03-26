@@ -1,5 +1,6 @@
 using MetricsDemo;
 using OpenTelemetry.Metrics;
+using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<ProductMetrics>();
@@ -36,17 +37,30 @@ app.MapGet("/products-sold", (ProductMetrics metrics) =>
     metrics.CountProductsSold(new Random().Next(10));
 });
 
+
+app.UseMetricServer();//Starting the metrics exporter, will expose "/metrics"
+
 // using pre-build metrics 
 app.MapGet("/", () => "Hello OpenTelemetry! ticks:"
                      + DateTime.Now.Ticks.ToString()[^3..]);
 
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
+
+app.UseRouting();
+
+app.UseHttpMetrics(options =>
+{
+    options.AddCustomLabel("host", context => context.Request.Host.Host);
+});
+
+app.UseAuthorization();
 
 app.MapControllers();
 
